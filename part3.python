@@ -1,0 +1,25 @@
+# Book inventory dictionary
+books = {
+    "978-3-16-148410-0": ("The Great Adventure", "John Doe", 19.99, {"fiction", "adventure"}),
+    "978-0-321-48681-0": ("Python Programming", "Guido van Rossum", 29.99, {"programming", "education"}),
+    "978-1-891830-77-8": ("The Mystery Island", "Jane Smith", 15.50, {"mystery", "thriller"}),
+    "978-0-7432-7356-5": ("History of the World", "David Marks", 35.75, {"history", "education"}),
+    "978-0-399-16524-2": ("Sci-Fi Wonders", "Emily Clarke", 22.40, {"science fiction", "fantasy"}),
+    "978-1-4028-9462-6": ("Another Adventure", "John Doe", 17.99, {"fiction", "adventure"})
+}
+
+# Function to update book price
+def update_price(isbn, new_price):
+    if isbn in books:
+        title, author, _, genres = books[isbn]  # Unpacking old tuple
+        books[isbn] = (title, author, new_price, genres)  # Creating new tuple
+        print(f"Price updated for ISBN {isbn}: ${new_price}")
+    else:
+        print("Book not found!")
+
+# Example usage:
+update_price("978-3-16-148410-0", 25.99)  # Updating price
+update_price("978-0-123-45678-9", 30.00)  # ISBN not found
+
+# Print updated dictionary
+print(books)

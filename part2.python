@@ -1,0 +1,26 @@
+# Book inventory dictionary
+books = {
+    "978-3-16-148410-0": ("The Great Adventure", "John Doe", 19.99, {"fiction", "adventure"}),
+    "978-0-321-48681-0": ("Python Programming", "Guido van Rossum", 29.99, {"programming", "education"}),
+    "978-1-891830-77-8": ("The Mystery Island", "Jane Smith", 15.50, {"mystery", "thriller"}),
+    "978-0-7432-7356-5": ("History of the World", "David Marks", 35.75, {"history", "education"}),
+    "978-0-399-16524-2": ("Sci-Fi Wonders", "Emily Clarke", 22.40, {"science fiction", "fantasy"}),
+    "978-1-4028-9462-6": ("Another Adventure", "John Doe", 17.99, {"fiction", "adventure"})
+}
+
+# Function to search books by author
+def search_by_author(author):
+    result = [(isbn, details[0]) for isbn, details in books.items() if details[1].lower() == author.lower()]
+    return result
+
+# Example usage:
+author_name = "John Doe"
+found_books = search_by_author(author_name)
+
+# Print results
+if found_books:
+    print(f"Books by {author_name}:")
+    for isbn, title in found_books:
+        print(f"ISBN: {isbn}, Title: {title}")
+else:
+    print(f"No books found by {author_name}.")

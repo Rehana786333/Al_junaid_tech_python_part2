@@ -1,0 +1,22 @@
+# Book inventory dictionary
+books = {
+    "978-3-16-148410-0": ("The Great Adventure", "John Doe", 19.99, {" Fiction ", "Adventure "}),
+    "978-0-321-48681-0": ("Python Programming", "Guido van Rossum", 29.99, {" Programming", " Education"}),
+    "978-1-891830-77-8": ("The Mystery Island", "Jane Smith", 15.50, {" Mystery ", "Thriller"}),
+    "978-0-7432-7356-5": ("History of the World", "David Marks", 35.75, {"History ", " Education "}),
+    "978-0-399-16524-2": ("Sci-Fi Wonders", "Emily Clarke", 22.40, {"Science Fiction", "Fantasy "}),
+    "978-1-4028-9462-6": ("Another Adventure", "John Doe", 17.99, {" Fiction", "Adventure "})
+}
+
+# Function to standardize genres
+def standardize_genres():
+    for isbn, details in books.items():
+        title, author, price, genres = details  # Extracting old tuple values
+        cleaned_genres = {genre.strip().lower() for genre in genres}  # Cleaning genres
+        books[isbn] = (title, author, price, cleaned_genres)  # Updating tuple
+
+# Example usage
+standardize_genres()
+
+# Print updated dictionary
+print(books)
